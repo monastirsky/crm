@@ -1,3 +1,9 @@
+a {
+  color: rgb(128, 128, 128);
+  cursor: pointer;
+  text-decoration: none;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,6 +11,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(20, 20, 20);
+  color: rgb(150, 150, 150);
+}
+
+.white {
+  color: white;
 }
 
 code {
@@ -12,6 +24,78 @@ code {
     monospace;
 }
 
-.display-now {
-  background-color: black;
+.main-container {
+  display: flex;
+}
+
+.all-tickets {
+  max-width: 600px;
+  width: 100%;
+  background-color: rgb(41, 41, 41);
+  margin-right: 20px;
+}
+
+.all-tickets__header {
+  padding: 5px 10px;
+}
+
+.all-tickets__list {
+  margin: 0;
+  padding: 10px 0;
+  overflow: scroll;
+  height: 100%;
+}
+
+.active li {
+  background-color: rgb(60, 60, 60);
+  border-left: 5px solid blueviolet;
+}
+
+.ticket {
+  padding: 0 20px;
+  box-sizing: content-box;
+  list-style-type: none;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border-top: 2px solid black;
+}
+
+.ticket__owner {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.ticket__status {
+  justify-self: flex-start;
+}
+
+.one-ticket {
+  padding: 20px;
+  width: 100%;
+  background-color: rgb(41, 41, 41);
+}
+
+.one-ticket__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.one-ticket__container {
+  margin: 20px 0;
+  box-sizing: border-box;
+  border: 3px solid rgb(33, 33, 33);
+}
+
+.container-name {
+  margin: 0;
+  padding: 10px;
+  background-color: rgb(31, 31, 31);
+}
+
+.owner-content {
+  display: flex;
+  padding: 20px;
 }
