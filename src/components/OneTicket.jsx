@@ -11,7 +11,6 @@ const OneTicket = (props) => {
 
   useEffect(() => {
     setDisplayTicket(id);
-    console.log(id);
     for (const i of tickets) {
       if (i.ticketId === displayTicket) {
         setDisplayNow(i);
