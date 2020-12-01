@@ -5,9 +5,7 @@ import TicketElement from "./TicketElement";
 import "../style/AllTickets.css";
 
 const AllTickets = () => {
-  const { tickets, displayTicket, setDisplayTicket } = useContext(
-    TicketsContext
-  );
+  const { tickets } = useContext(TicketsContext);
   const [search, setSearch] = useState("");
 
   const displayNow = tickets.filter((element) => {
@@ -25,38 +23,9 @@ const AllTickets = () => {
           <span className="header-asset">ASSET</span>
           <span className="header-status">STATUS</span>
         </div>
-        <ul className="all-tickets__list">
-          {displayNow.map((element) => {
-            return (
-              <TicketElement ticket={element} key={element.ticketId} />
-
-              // <NavLink to={"/" + element.ticketId} key={element.ticketId}>
-              //   <li
-              //     id={element.ticketId}
-              //     className="ticket"
-              //     onClick={() => handleClick(element.ticketId)}
-              //   >
-              //     <img
-              //       src={element.owner.avatar}
-              //       className="ticket__owner"
-              //       alt="owner"
-              //     />
-              //     <span className="ticket__date">{element.reportedTime}</span>
-              //     <span className="ticket__name">
-              //       {" " + element.asset.name}
-              //     </span>
-              //     <span className={"ticket__status " + element.status}>
-              //       {element.status === "assigned"
-              //         ? " ASD"
-              //         : element.status === "completed"
-              //         ? " COM"
-              //         : " UNA"}
-              //     </span>
-              //   </li>
-              // </NavLink>
-            );
-          })}
-        </ul>
+        {displayNow.map((element) => {
+          return <TicketElement ticket={element} key={element.ticketId} />;
+        })}
       </div>
     </div>
   );

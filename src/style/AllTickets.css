@@ -1,0 +1,24 @@
+.all-tickets {
+  background-color: rgb(65, 65, 65);
+  width: 600px;
+  padding: 0 20px;
+}
+
+.all-tickets__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.header-owner {
+}
+
+.header-report {
+}
+
+.header-asset {
+}
+
+.header-status {
+}

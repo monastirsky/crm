@@ -13,7 +13,7 @@ const TicketElement = ({ ticket }) => {
     <NavLink
       to={displayTicket === ticket.ticketId ? "/" : "/" + ticket.ticketId}
     >
-      <li
+      <div
         id={ticket.ticketId}
         className="ticket"
         onClick={() => handleClick(ticket.ticketId)}
@@ -28,7 +28,7 @@ const TicketElement = ({ ticket }) => {
             ? " COM"
             : " UNA"}
         </span>
-      </li>
+      </div>
     </NavLink>
   );
 };
