@@ -1,4 +1,4 @@
-.App {
+.app {
   margin: 0 15px;
 }
 
@@ -10,6 +10,6 @@
   font-weight: bold;
 }
 
-.main-container {
+.mainContainer {
   display: flex;
 }

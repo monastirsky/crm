@@ -1,42 +1,42 @@
 import React, { useEffect, useState, useContext } from "react";
-import { matchPath } from "react-router-dom";
 import { TicketsContext } from "../context/TicketsContext";
 
 const OneTicket = (props) => {
-  const { tickets, setTickets, displayTicket, setDisplayTicket } = useContext(
+  const { tickets, displayTicketId, setDisplayTicketId } = useContext(
     TicketsContext
   );
-  const [displayNow, setDisplayNow] = useState(null);
+  const [ticketDisplayedNow, setTicketDisplayedNow] = useState(null);
   const id = Number(props.match.params["ticket_id"]);
 
   useEffect(() => {
-    if (displayTicket !== id) {
-      setDisplayTicket(id);
+    if (displayTicketId !== id) {
+      setDisplayTicketId(id);
     }
-    setDisplayNow(tickets.find((element) => element.ticketId === id));
+    setTicketDisplayedNow(tickets.find((element) => element.ticketId === id));
   });
 
-  return displayNow ? (
+  return ticketDisplayedNow ? (
     <div className="one-ticket">
       <div className="one-ticket__header">
         <span>
-          TICKET NO. <span className="white">{displayNow.number}</span>
+          TICKET NO. <span className="white">{ticketDisplayedNow.number}</span>
         </span>
-        <span>LAST UPDATE {displayNow.lastUpdatedTime}</span>
+        <span>LAST UPDATE {ticketDisplayedNow.lastUpdatedTime}</span>
       </div>
       <div className="one-ticket__container">
         <p className="container-name white">Owner</p>
         <div className="owner-content">
           <img
-            src={displayNow.owner.avatar}
+            src={ticketDisplayedNow.owner.avatar}
             alt="avatar"
             style={{ width: "60px", height: "60px", borderRadius: "50%" }}
           />
           <div>
             <span>
-              {displayNow.owner.firstName} {displayNow.owner.lastName}
+              {ticketDisplayedNow.owner.firstName}{" "}
+              {ticketDisplayedNow.owner.lastName}
             </span>
-            <span>{displayNow.owner.specialities}</span>
+            <span>{ticketDisplayedNow.owner.specialities}</span>
           </div>
         </div>
       </div>
@@ -45,15 +45,15 @@ const OneTicket = (props) => {
         <div>
           <div>
             <span>Reported</span>
-            <span>{displayNow.reportedTime}</span>
+            <span>{ticketDisplayedNow.reportedTime}</span>
           </div>
           <div>
             <span>Status</span>
-            <span>{displayNow.status}</span>
+            <span>{ticketDisplayedNow.status}</span>
           </div>
           <div>
             <span>Discription</span>
-            <span>{displayNow.description}</span>
+            <span>{ticketDisplayedNow.description}</span>
           </div>
         </div>
       </div>

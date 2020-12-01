@@ -1,27 +1,36 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { TicketsContext } from "../context/TicketsContext";
+import style from "../style/ticket-element.module.css";
 
 const TicketElement = ({ ticket }) => {
-  const { displayTicket, setDisplayTicket } = useContext(TicketsContext);
+  const { displayTicketId, setDisplayTicketId } = useContext(TicketsContext);
 
   const handleClick = (id) => {
-    setDisplayTicket(displayTicket === id ? null : id);
+    setDisplayTicketId(displayTicketId === id ? null : id);
   };
 
   return (
-    <NavLink
-      to={displayTicket === ticket.ticketId ? "/" : "/" + ticket.ticketId}
+    <Link
+      to={displayTicketId === ticket.ticketId ? "/" : "/" + ticket.ticketId}
     >
       <div
         id={ticket.ticketId}
-        className="ticket"
+        className={` ${style.ticket} ${
+          displayTicketId === ticket.ticketId ? style.active : ""
+        }`}
         onClick={() => handleClick(ticket.ticketId)}
       >
-        <img src={ticket.owner.avatar} className="ticket__owner" alt="owner" />
-        <span className="ticket__date">{ticket.reportedTime}</span>
-        <span className="ticket__name">{" " + ticket.asset.name}</span>
-        <span className={"ticket__status " + ticket.status}>
+        <div className={style.container}>
+          <img src={ticket.owner.avatar} className={style.owner} alt="owner" />
+          <span className={style.date}>
+            {ticket.reportedTime.slice(0, 10) +
+              " " +
+              ticket.reportedTime.slice(11, 16)}
+          </span>
+          <span className={style.asset}>{" " + ticket.asset.name}</span>
+        </div>
+        <span className={style.status}>
           {ticket.status === "assigned"
             ? " ASD"
             : ticket.status === "completed"
@@ -29,7 +38,7 @@ const TicketElement = ({ ticket }) => {
             : " UNA"}
         </span>
       </div>
-    </NavLink>
+    </Link>
   );
 };
 

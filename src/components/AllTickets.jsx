@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { TicketsContext } from "../context/TicketsContext";
 import Search from "./Search";
 import TicketElement from "./TicketElement";
-import "../style/AllTickets.css";
+import style from "../style/all-tickets.module.css";
 
 const AllTickets = () => {
   const { tickets } = useContext(TicketsContext);
@@ -16,12 +16,12 @@ const AllTickets = () => {
   return (
     <div>
       <Search addSearch={setSearch} />
-      <div className="all-tickets">
-        <div className="all-tickets__header">
-          <span className="header-owner">OWNER</span>
-          <span className="header-report">REPORTED</span>
-          <span className="header-asset">ASSET</span>
-          <span className="header-status">STATUS</span>
+      <div className={style.allTickets}>
+        <div className={style.header}>
+          <span className={style.owner}>OWNER</span>
+          <span className={style.report}>REPORTED</span>
+          <span className={style.asset}>ASSET</span>
+          <span className={style.status}>STATUS</span>
         </div>
         {displayNow.map((element) => {
           return <TicketElement ticket={element} key={element.ticketId} />;

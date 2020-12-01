@@ -1,0 +1,36 @@
+.ticket {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0 20px;
+  color: rgb(199, 199, 199);
+  font-size: 20px;
+  font-weight: 500;
+  border-bottom: 3px solid black;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+.owner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+
+.date {
+  margin-right: 20px;
+}
+
+.status {
+  justify-self: flex-end;
+}
+
+.active {
+  background-color: rgb(94, 94, 94);
+  border-left: 5px solid blueviolet;
+  padding-left: 15px;
+}

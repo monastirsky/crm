@@ -4,10 +4,10 @@ export const TicketsContext = createContext();
 
 const TicketsContextProvider = (props) => {
   const [tickets, setTickets] = useState([]);
-  const [displayTicket, setDisplayTicket] = useState(null);
+  const [displayTicketId, setDisplayTicketId] = useState(null);
   return (
     <TicketsContext.Provider
-      value={{ tickets, setTickets, displayTicket, setDisplayTicket }}
+      value={{ tickets, setTickets, displayTicketId, setDisplayTicketId }}
     >
       {props.children}
     </TicketsContext.Provider>

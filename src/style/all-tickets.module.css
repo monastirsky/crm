@@ -1,0 +1,28 @@
+.allTickets {
+  background-color: rgb(65, 65, 65);
+  width: 550px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 50px;
+  padding: 0 20px;
+  border-bottom: 3px solid black;
+}
+
+.owner {
+  margin-right: 15px;
+}
+
+.report {
+  margin-right: 90px;
+}
+
+.asset {
+  margin-right: 160px;
+}
+
+.status {
+}

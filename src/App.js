@@ -5,28 +5,32 @@ import OneTicket from "./components/OneTicket";
 import Empty from "./components/Empty";
 import { TicketsContext } from "./context/TicketsContext";
 import axios from "axios";
-import "./style/App.css";
+import style from "./style/app.module.css";
 
 function App() {
   const { setTickets } = useContext(TicketsContext);
 
   useEffect(() => {
-    async function set() {
-      const request = await axios.get(
-        "https://raw.githubusercontent.com/Tapify/public-code-test/master/web-ui-test/tickets.json"
-      );
-      setTickets(request.data);
+    async function setContext() {
+      try {
+        const request = await axios.get(
+          "https://raw.githubusercontent.com/Tapify/public-code-test/master/web-ui-test/tickets.json"
+        );
+        setTickets(request.data);
+      } catch (err) {
+        alert(err);
+      }
     }
-    set();
+    setContext();
   }, []);
 
   return (
     <BrowserRouter>
-      <div className="App">
-        <div className="header">
-          <span className="logo">Tickets</span>
+      <div className={style.app}>
+        <div className={style.header}>
+          <span>Tickets</span>
         </div>
-        <div className="main-container">
+        <div className={style.mainContainer}>
           <AllTickets />
           <Route exact path="/" component={Empty} />
           <Route path="/:ticket_id" component={OneTicket} />
