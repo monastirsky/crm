@@ -1,17 +1,23 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { TicketsContext } from "../context/TicketsContext";
 import { NavLink } from "react-router-dom";
 import Search from "./Search";
 
 const AllTickets = () => {
-  const { tickets, setDisplayTicket } = useContext(TicketsContext);
+  const { tickets, displayTicket, setDisplayTicket } = useContext(
+    TicketsContext
+  );
+  const [search, setSearch] = useState("");
   const handleClick = (id) => {
     setDisplayTicket(id);
   };
-
+  const displayNow = tickets.filter((element) => {
+    const name = element.owner.firstName + " " + element.owner.lastName;
+    return name.toLocaleLowerCase().includes(search.toLocaleLowerCase());
+  });
   return (
     <div>
-      <Search />
+      <Search addSearch={setSearch} />
       <div className="all-tickets">
         <div className="all-tickets__header">
           <span className="header-owner">OWNER</span>
@@ -20,7 +26,7 @@ const AllTickets = () => {
           <span className="header-status">STATUS</span>
         </div>
         <ul className="all-tickets__list">
-          {tickets.map((element) => {
+          {displayNow.map((element) => {
             return (
               <NavLink to={"/" + element.ticketId} key={element.ticketId}>
                 <li

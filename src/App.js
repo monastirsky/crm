@@ -9,13 +9,13 @@ function App() {
   const { setTickets } = useContext(TicketsContext);
 
   useEffect(() => {
-    axios
-      .get(
+    async function set() {
+      const request = await axios.get(
         "https://raw.githubusercontent.com/Tapify/public-code-test/master/web-ui-test/tickets.json"
-      )
-      .then((result) => {
-        setTickets(result.data);
-      });
+      );
+      setTickets(request.data);
+    }
+    set();
   }, []);
   return (
     <BrowserRouter>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { matchPath } from "react-router-dom";
 import { TicketsContext } from "../context/TicketsContext";
 
 const OneTicket = (props) => {
@@ -6,17 +7,13 @@ const OneTicket = (props) => {
     TicketsContext
   );
   const [displayNow, setDisplayNow] = useState(null);
-
-  const id = Number(props.location.pathname.slice(1));
+  const id = Number(props.match.params["ticket_id"]);
 
   useEffect(() => {
-    setDisplayTicket(id);
-    for (const i of tickets) {
-      if (i.ticketId === displayTicket) {
-        setDisplayNow(i);
-        break;
-      }
+    if (displayTicket !== id) {
+      setDisplayTicket(id);
     }
+    setDisplayNow(tickets.find((element) => element.ticketId === id));
   });
 
   return displayNow ? (
