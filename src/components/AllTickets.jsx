@@ -21,7 +21,7 @@ const AllTickets = () => {
           <span className={style.owner}>OWNER</span>
           <span className={style.report}>REPORTED</span>
           <span className={style.asset}>ASSET</span>
-          <span className={style.status}>STATUS</span>
+          <span>STATUS</span>
         </div>
         {displayNow.map((element) => {
           return <TicketElement ticket={element} key={element.ticketId} />;

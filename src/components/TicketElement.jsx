@@ -30,13 +30,23 @@ const TicketElement = ({ ticket }) => {
           </span>
           <span className={style.asset}>{" " + ticket.asset.name}</span>
         </div>
-        <span className={style.status}>
-          {ticket.status === "assigned"
-            ? " ASD"
-            : ticket.status === "completed"
-            ? " COM"
-            : " UNA"}
-        </span>
+        <div
+          className={`${style.status} ${
+            ticket.status === "assigned"
+              ? style.assigned
+              : ticket.status === "completed"
+              ? style.completed
+              : style.unassigned
+          }`}
+        >
+          <span>
+            {ticket.status === "assigned"
+              ? " ASD"
+              : ticket.status === "completed"
+              ? " COM"
+              : " UNA"}
+          </span>
+        </div>
       </div>
     </Link>
   );

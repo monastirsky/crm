@@ -5,8 +5,8 @@
   height: 50px;
   padding: 0 20px;
   color: rgb(199, 199, 199);
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 400;
   border-bottom: 3px solid black;
 }
 
@@ -26,11 +26,29 @@
 }
 
 .status {
-  justify-self: flex-end;
+  display: flex;
+  justify-content: center;
+  width: 40px;
+  border: 1px solid black;
+  padding: 5px 0;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 .active {
   background-color: rgb(94, 94, 94);
   border-left: 5px solid blueviolet;
   padding-left: 15px;
+}
+
+.assigned {
+  color: rgb(165, 165, 0);
+}
+
+.completed {
+  color: green;
+}
+
+.unassigned {
+  color: gray;
 }
