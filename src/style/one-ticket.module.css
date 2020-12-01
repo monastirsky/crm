@@ -1,0 +1,51 @@
+.wrapper {
+  margin-left: 10px;
+  padding: 20px;
+  background-color: rgb(65, 65, 65);
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  border: 2px solid rgb(51, 51, 51);
+  margin: 10px 0;
+}
+
+.containerName {
+  color: white;
+  background-color: rgb(51, 51, 51);
+  margin: 0;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.owner {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.userInfoContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  margin-bottom: 5px;
+}
+
+.userSpecialities {
+  text-transform: uppercase;
+}

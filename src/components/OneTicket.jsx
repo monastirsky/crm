@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useMemo } from "react";
 import { TicketsContext } from "../context/TicketsContext";
+import style from "../style/one-ticket.module.css";
 
 const OneTicket = (props) => {
   const { tickets, displayTicketId, setDisplayTicketId } = useContext(
@@ -12,37 +13,41 @@ const OneTicket = (props) => {
     if (displayTicketId !== id) {
       setDisplayTicketId(id);
     }
-    setTicketDisplayedNow(tickets.find((element) => element.ticketId === id));
   });
+  useMemo(() => {
+    setTicketDisplayedNow(tickets.find((element) => element.ticketId === id));
+  }, [id, tickets]);
 
   return ticketDisplayedNow ? (
-    <div className="one-ticket">
-      <div className="one-ticket__header">
+    <div className={style.wrapper}>
+      <div className={style.header}>
         <span>
-          TICKET NO. <span className="white">{ticketDisplayedNow.number}</span>
+          TICKET NO. <span>{ticketDisplayedNow.number}</span>
         </span>
         <span>LAST UPDATE {ticketDisplayedNow.lastUpdatedTime}</span>
       </div>
-      <div className="one-ticket__container">
-        <p className="container-name white">Owner</p>
-        <div className="owner-content">
+      <div className={style.container}>
+        <p className={style.containerName}>Owner</p>
+        <div className={style.owner}>
           <img
+            className={style.avatar}
             src={ticketDisplayedNow.owner.avatar}
             alt="avatar"
-            style={{ width: "60px", height: "60px", borderRadius: "50%" }}
           />
-          <div>
-            <span>
+          <div className={style.userInfoContainer}>
+            <span className={style.userName}>
               {ticketDisplayedNow.owner.firstName}{" "}
               {ticketDisplayedNow.owner.lastName}
             </span>
-            <span>{ticketDisplayedNow.owner.specialities}</span>
+            <span className={style.userSpecialities}>
+              {ticketDisplayedNow.owner.specialities}
+            </span>
           </div>
         </div>
       </div>
-      <div className="one-ticket__container">
-        <p className="container-name white">Details</p>
-        <div>
+      <div className={style.container}>
+        <p className={style.containerName}>Details</p>
+        <div className={style}>
           <div>
             <span>Reported</span>
             <span>{ticketDisplayedNow.reportedTime}</span>
@@ -57,8 +62,8 @@ const OneTicket = (props) => {
           </div>
         </div>
       </div>
-      <div className="one-ticket__container">
-        <p className="container-name white">Asset</p>
+      <div className={style.container}>
+        <p className={style.containerName}>Asset</p>
       </div>
     </div>
   ) : (
