@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import { TicketsContext } from "../context/TicketsContext";
-
 import Search from "./Search";
 import TicketElement from "./TicketElement";
+import "../style/AllTickets.css";
 
 const AllTickets = () => {
   const { tickets, displayTicket, setDisplayTicket } = useContext(
