@@ -1,6 +1,4 @@
 a {
-  color: rgb(128, 128, 128);
-  cursor: pointer;
   text-decoration: none;
 }
 
@@ -15,87 +13,25 @@ body {
   color: rgb(186, 186, 186);
 }
 
-/* .white {
-  color: white;
+::-webkit-scrollbar {
+  width: 15px;
+  background-color: #353535;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+::-webkit-scrollbar-thumb {
+  background-color: #686868;
 }
 
-.main-container {
-  display: flex;
+::-webkit-scrollbar-button:vertical:start:decrement {
+  background: linear-gradient(120deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(240deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(0deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
 }
 
-.all-tickets {
-  max-width: 700px;
-  width: 100%;
-  background-color: rgb(41, 41, 41);
-  margin-right: 20px;
+::-webkit-scrollbar-button:vertical:end:increment {
+  background: linear-gradient(300deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(60deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+    linear-gradient(180deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+  background-color: #f6f8f4;
 }
-
-.all-tickets__header {
-  padding: 5px 10px;
-}
-
-.all-tickets__list {
-  margin: 0;
-  padding: 10px 0;
-  overflow: scroll;
-  height: 100%;
-}
-
-.active li {
-  background-color: rgb(60, 60, 60);
-  border-left: 5px solid blueviolet;
-}
-
-.ticket {
-  padding: 0 20px;
-  box-sizing: content-box;
-  list-style-type: none;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  border-top: 2px solid black;
-}
-
-.ticket__owner {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-.ticket__status {
-  justify-self: flex-start;
-}
-
-.one-ticket {
-  padding: 20px;
-  width: 100%;
-  background-color: rgb(41, 41, 41);
-}
-
-.one-ticket__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.one-ticket__container {
-  margin: 20px 0;
-  box-sizing: border-box;
-  border: 3px solid rgb(33, 33, 33);
-}
-
-.container-name {
-  margin: 0;
-  padding: 10px;
-  background-color: rgb(31, 31, 31);
-}
-
-.owner-content {
-  display: flex;
-  padding: 20px;
-} */

@@ -1,6 +1,8 @@
 .allTickets {
   background-color: rgb(65, 65, 65);
   width: 450px;
+  height: calc(100vh - 150px);
+  overflow-y: auto;
 }
 
 .header {
@@ -14,7 +16,7 @@
 }
 
 .owner {
-  margin-right: 20px;
+  margin-right: 25px;
 }
 
 .report {
@@ -22,5 +24,5 @@
 }
 
 .asset {
-  margin-right: 130px;
+  margin-right: 100px;
 }

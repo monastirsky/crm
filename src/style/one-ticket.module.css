@@ -3,6 +3,8 @@
   padding: 20px;
   background-color: rgb(65, 65, 65);
   width: 100%;
+  height: calc(100vh - 135px);
+  overflow-y: auto;
 }
 
 .header {
@@ -12,7 +14,7 @@
 
 .container {
   border: 2px solid rgb(51, 51, 51);
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .containerName {
@@ -48,4 +50,35 @@
 
 .userSpecialities {
   text-transform: uppercase;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 20px;
+}
+
+.containerElement {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+.nameOfDescription {
+  margin-bottom: 5px;
+  color: rgb(123, 123, 123);
+}
+
+.locationContainer {
+  display: flex;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 5px;
 }
