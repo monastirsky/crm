@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, useMemo } from "react";
+import React, { useEffect, useContext, useMemo } from "react";
 import { TicketsContext } from "../context/TicketsContext";
 import style from "../style/one-ticket.module.css";
 import { prepareDate, crateStatusBlock } from "../functions";
@@ -7,21 +7,16 @@ const OneTicket = (props) => {
   const { tickets, displayTicketId, setDisplayTicketId } = useContext(
     TicketsContext
   );
-  // const [ticketDisplayedNow, setTicketDisplayedNow] = useState(null);
+
   const id = Number(props.match.params["ticket_id"]);
 
-  let ticketDisplayedNow = null;
+  const ticketDisplayedNow = useMemo(() => {
+    return tickets.find((element) => element.ticketId === id);
+  }, [id, tickets]);
 
   useEffect(() => {
-    if (displayTicketId !== id) {
-      setDisplayTicketId(id);
-    }
-  });
-
-  useMemo(() => {
-    // setTicketDisplayedNow(tickets.find((element) => element.ticketId === id));
-    ticketDisplayedNow = tickets.find((element) => element.ticketId === id);
-  }, [id, tickets]);
+    setDisplayTicketId(id);
+  }, [displayTicketId, id, setDisplayTicketId]);
 
   return ticketDisplayedNow ? (
     <div className={style.wrapper}>

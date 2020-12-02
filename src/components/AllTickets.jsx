@@ -12,7 +12,6 @@ const AllTickets = () => {
     const name = element.owner.firstName + " " + element.owner.lastName;
     return name.toLocaleLowerCase().includes(search.toLocaleLowerCase());
   });
-
   return (
     <div>
       <Search addSearch={setSearch} />
