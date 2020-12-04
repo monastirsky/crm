@@ -4,27 +4,25 @@ import { TicketsContext } from "../context/TicketsContext";
 import style from "../style/ticket-element.module.css";
 import { prepareDate, crateStatusBlock } from "../functions";
 
-const TicketElement = ({ ticket }) => {
+const TicketElement = ({ ticket }: any) => {
   const { displayTicketId, setDisplayTicketId } = useContext(TicketsContext);
 
-  const handleClick = (id) => {
+  const handleClick = (id: string) => {
     setDisplayTicketId(displayTicketId === id ? null : id);
   };
 
   return (
-    <Link
-      to={displayTicketId === ticket.ticketId ? "/" : "/" + ticket.ticketId}
-    >
+    <Link to={displayTicketId === ticket._id ? "/" : "/" + ticket._id}>
       <div
-        id={ticket.ticketId}
+        id={ticket._id}
         className={` ${style.ticket} ${
-          displayTicketId === ticket.ticketId ? style.active : ""
+          displayTicketId === ticket._id ? style.active : ""
         }`}
-        onClick={() => handleClick(ticket.ticketId)}
+        onClick={() => handleClick(ticket._id)}
       >
         <div className={style.container}>
           <img src={ticket.owner.avatar} className={style.owner} alt="owner" />
-          <span className={style.date}>{prepareDate(ticket.reportedTime)}</span>
+          <span className={style.date}>{prepareDate(ticket.createdAt)}</span>
           <span className={style.asset}>{" " + ticket.asset.name}</span>
         </div>
         {crateStatusBlock(ticket.status)}

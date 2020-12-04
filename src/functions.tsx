@@ -1,8 +1,8 @@
-export const prepareDate = (date) => {
+export const prepareDate = (date: string) => {
   return date.slice(0, 10) + " " + date.slice(11, 16);
 };
 
-export const crateStatusBlock = (status) => {
+export const crateStatusBlock = (status: string) => {
   return (
     <div
       style={{

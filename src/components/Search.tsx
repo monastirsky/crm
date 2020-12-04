@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import style from "../style/search.module.css";
 
-const Search = ({ addSearch }) => {
+const Search = ({ addSearch }: any) => {
   const [search, setSearch] = useState("");
 
-  const submitHandler = (event) => {
+  const submitHandler = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     addSearch(search);
     // setSearch("");
   };
 
-  const changeHandler = (event) => {
+  const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
 

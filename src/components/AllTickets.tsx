@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { TicketsContext } from "../context/TicketsContext";
+import { TicketsContext, Tickets } from "../context/TicketsContext";
 import Search from "./Search";
 import TicketElement from "./TicketElement";
 import style from "../style/all-tickets.module.css";
@@ -8,7 +8,7 @@ const AllTickets = () => {
   const { tickets } = useContext(TicketsContext);
   const [search, setSearch] = useState("");
 
-  const displayNow = tickets.filter((element) => {
+  const displayNow = tickets.filter((element: Tickets) => {
     const name = element.owner.firstName + " " + element.owner.lastName;
     return name.toLocaleLowerCase().includes(search.toLocaleLowerCase());
   });
@@ -22,8 +22,8 @@ const AllTickets = () => {
           <span className={style.asset}>ASSET</span>
           <span>STATUS</span>
         </div>
-        {displayNow.map((element) => {
-          return <TicketElement ticket={element} key={element.ticketId} />;
+        {displayNow.map((element: Tickets) => {
+          return <TicketElement ticket={element} key={element._id} />;
         })}
       </div>
     </div>

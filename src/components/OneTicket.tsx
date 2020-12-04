@@ -1,17 +1,19 @@
-import React, { useEffect, useContext, useMemo } from "react";
-import { TicketsContext } from "../context/TicketsContext";
+import { useEffect, useContext, useMemo } from "react";
+import { TicketsContext, Tickets } from "../context/TicketsContext";
 import style from "../style/one-ticket.module.css";
 import { prepareDate, crateStatusBlock } from "../functions";
+// import { useParams } from "react-router-dom";
 
-const OneTicket = (props) => {
+const OneTicket = (props: any) => {
   const { tickets, displayTicketId, setDisplayTicketId } = useContext(
     TicketsContext
   );
 
-  const id = Number(props.match.params["ticket_id"]);
+  const id = props.match.params["ticket_id"];
+  // const {ticket_id: id} = useParams();
 
   const ticketDisplayedNow = useMemo(() => {
-    return tickets.find((element) => element.ticketId === id);
+    return tickets.find((element: Tickets) => element._id === id);
   }, [id, tickets]);
 
   useEffect(() => {
@@ -24,9 +26,7 @@ const OneTicket = (props) => {
         <span>
           TICKET NO. <span>{ticketDisplayedNow.number}</span>
         </span>
-        <span>
-          LAST UPDATE {prepareDate(ticketDisplayedNow.lastUpdatedTime)}
-        </span>
+        <span>LAST UPDATE {prepareDate(ticketDisplayedNow.createdAt)}</span>
       </div>
       <div className={style.container}>
         <p className={style.containerName}>Owner</p>
@@ -52,7 +52,7 @@ const OneTicket = (props) => {
         <div className={style.details}>
           <div className={style.containerElement}>
             <span className={style.nameOfDescription}>Reported</span>
-            <span>{prepareDate(ticketDisplayedNow.reportedTime)}</span>
+            <span>{prepareDate(ticketDisplayedNow.createdAt)}</span>
           </div>
           <div className={style.containerElement}>
             <span className={style.nameOfDescription}>Status</span>
@@ -90,7 +90,7 @@ const OneTicket = (props) => {
       </div>
     </div>
   ) : (
-    ""
+    <div />
   );
 };
 

@@ -13,16 +13,14 @@ function App() {
   useEffect(() => {
     async function setContext() {
       try {
-        const request = await axios.get(
-          "https://raw.githubusercontent.com/Tapify/public-code-test/master/web-ui-test/tickets.json"
-        );
+        const request = await axios.get("http://localhost:3005/ticket");
         setTickets(request.data);
       } catch (err) {
         alert(err);
       }
     }
     setContext();
-  }, []);
+  }, [setTickets]);
 
   return (
     <BrowserRouter>
